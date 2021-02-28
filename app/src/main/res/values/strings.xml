@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">PracticleTaskApp</string>
+
+    <string name="first_name_ttl">First Name</string>
+    <string name="last_name_ttl">Last Name</string>
+    <string name="email_ttl">Email Address</string>
+    <string name="phone_no_ttl">Phone Number</string>
+    <string name="gender_ttl">Gender</string>
+    <string name="male_ttl">Male</string>
+    <string name="female_ttl">Female</string>
+    <string name="password_ttl">Password</string>
+    <string name="address_ttl">Address</string>
+    <string name="inteseted_area_ttl">Interested Area</string>
+
+    <string name="first_name_empty">Please enter First Name</string>
+    <string name="last_name_empty">Please enter Last Name</string>
+    <string name="email_empty">Please enter Email Address</string>
+    <string name="email_valid">Please enter valid Email Address</string>
+    <string name="phone_no_empty">Please enter Phone Number</string>
+    <string name="phone_no_valid">Please enter valid Phone Number</string>
+    <string name="gender_empty">Please enter Gender</string>
+    <string name="password_empty">Please enter Password</string>
+    <string name="address_empty">Please enter Address</string>
 </resources>

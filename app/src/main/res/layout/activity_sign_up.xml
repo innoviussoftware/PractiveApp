@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context=".ui.signup.SignUpActivity">
     
     <ScrollView
@@ -36,7 +37,7 @@
                     android:id="@+id/edtTvUserNameASUP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/user_name_ttl"
+                    android:hint="@string/first_name_ttl"
                     android:textColorHint="@color/gray_clr"
                     android:imeOptions="actionNext"
                     android:inputType="textCapSentences|textCapWords"
@@ -46,7 +47,32 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textColorHint="@color/gray_clr"
+                app:hintTextAppearance="@style/EditTextLabel"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <EditText
+                    android:id="@+id/edtTvLastNameASUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name_ttl"
+                    android:textColorHint="@color/gray_clr"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapSentences|textCapWords"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
         </LinearLayout>
         
     </ScrollView>
