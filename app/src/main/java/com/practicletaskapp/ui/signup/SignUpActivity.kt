@@ -23,12 +23,14 @@ import com.practicletaskapp.utils.UtilsJava
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
+import com.theartofdev.edmodo.cropper.CropImage
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -42,7 +44,7 @@ class SignUpActivity : AppCompatActivity() {
 
     lateinit var ivProfilePicASUP:ImageView
 
-    lateinit var mContext:Context
+    lateinit var mContext: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
