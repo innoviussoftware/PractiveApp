@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.SignUpActivity">
+    tools:context=".ui.signup.SignUpActivity">
     
     <ScrollView
         android:layout_width="match_parent"
@@ -16,10 +16,36 @@
             android:layout_height="match_parent">
             
             <ImageView
-                android:layout_width="60sdp"
-                android:layout_height="60sd"
-            
-            
+                android:id="@+id/ivProfilePicASUP"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"/>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tvLytUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textColorHint="@color/gray_clr"
+                app:hintTextAppearance="@style/EditTextLabel"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <EditText
+                    android:id="@+id/edtTvUserNameASUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/user_name_ttl"
+                    android:textColorHint="@color/gray_clr"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapSentences|textCapWords"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             
         </LinearLayout>
         

@@ -1,4 +1,4 @@
-package com.moodiesapp.Utils
+package com.practicletaskapp.Utils
 
 import android.app.ProgressDialog
 import android.content.Context
