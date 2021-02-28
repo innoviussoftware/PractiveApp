@@ -25,7 +25,6 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tvLytUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -34,7 +33,7 @@
                 android:layout_marginEnd="@dimen/_20sdp">
 
                 <EditText
-                    android:id="@+id/edtTvUserNameASUP"
+                    android:id="@+id/edtTvFirstNameASUP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/first_name_ttl"
@@ -48,9 +47,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+               android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
+                android:layout_height="wrap_content"
                 android:textColorHint="@color/gray_clr"
                 app:hintTextAppearance="@style/EditTextLabel"
                 android:layout_marginEnd="@dimen/_20sdp">
@@ -69,8 +69,158 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/gray_clr"
+                app:hintTextAppearance="@style/EditTextLabel"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <EditText
+                    android:id="@+id/edtTvEmailASUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_ttl"
+                    android:textColorHint="@color/gray_clr"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/gray_clr"
+                app:hintTextAppearance="@style/EditTextLabel"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <EditText
+                    android:id="@+id/edtTvPhoneSUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone_no_ttl"
+                    android:textColorHint="@color/gray_clr"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/gray_clr"
+                app:hintTextAppearance="@style/EditTextLabel"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <EditText
+                    android:id="@+id/edtTvPasswordSUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password_ttl"
+                    android:textColorHint="@color/gray_clr"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <TextView
+                android:id="@+id/tvSex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ltvDOB"
+                android:layout_marginStart="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:hint="@string/gender_ttl"
+                android:textColor="@color/gray_clr"
+                android:textSize="@dimen/_11ssp" />
+
+            <RelativeLayout
+                android:id="@+id/rlSex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSex"
+                android:layout_marginStart="@dimen/_22sdp"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <RadioGroup
+                    android:id="@+id/rdoGrpSexASUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioFeMaleASUP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:button="@drawable/checkbox_bg"
+                        android:checked="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/female_ttl"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <RadioButton
+                        android:id="@+id/radioMaleASUP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:background="@null"
+                        android:button="@drawable/checkbox_bg"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/male_ttl"
+                        android:textSize="@dimen/_11ssp" />
+
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/gray_clr"
+                app:hintTextAppearance="@style/EditTextLabel"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <EditText
+                    android:id="@+id/edtTvAddressSUP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address_ttl"
+                    android:textColorHint="@color/gray_clr"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
         </LinearLayout>
