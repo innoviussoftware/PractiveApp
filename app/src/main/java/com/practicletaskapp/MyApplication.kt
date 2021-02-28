@@ -4,6 +4,7 @@ import android.app.Application
 import com.practicletaskapp.data.repository.*
 import com.practicletaskapp.network.MyApi
 import com.practicletaskapp.network.NetworkConnectionInterceptor
+import com.practicletaskapp.ui.login.LoginViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -22,8 +23,8 @@ class MyApplication : Application(), KodeinAware {
         bind() from singleton { MyApi(instance()) }
 
         //Login screen Injection
-       /* bind() from singleton { LoginRepository(instance()) }
-        bind() from provider { LoginViewModelFactory(instance()) }*/
+        bind() from singleton { LoginSignUpRepository(instance()) }
+        bind() from provider { LoginViewModelFactory(instance()) }
 
 
     }

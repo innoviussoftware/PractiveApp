@@ -26,4 +26,6 @@
     <string name="signup_success_msg">SignUp Successfully.</string>
 
     <string name="already_hva_an_act_ttl">Already have an account? Login</string>
+    <string name="login_ttl">Login</string>
+    <string name="don_t_hv_account">Don\'t have account? Sign In</string>
 </resources>

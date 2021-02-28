@@ -4,13 +4,11 @@ class WebFields {
 
     //Todo: Api Call Releted Comman and static Data
     companion object {
-        //        const val PAY_TM_CALL_BACK_URL = "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID="  //For Development
 
-        const val BASE_URL = "http://18.188.115.230/api/" //For Live
-        const val IMAGE_BASE_URL = "http://18.188.115.230/storage/app/"
+        const val BASE_URL = "http://180.211.99.165:8080/jaisal/Sweet_Science_Boxing/v8/"
 
 
-        const val LOGIN_PATH_PARAM = "login"//P
+        const val LOGIN_PATH_PARAM = "user/sign_in"//P
 
         //Common request param
         const val RESPONSE_MESSAGE = "message"

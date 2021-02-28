@@ -17,8 +17,11 @@
             android:layout_height="match_parent">
             
             <ImageView
+                android:onClick="changeProfilePIc"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:id="@+id/ivProfilePicASUP"
-                android:layout_gravity="center_vertical"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"/>
 

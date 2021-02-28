@@ -76,4 +76,9 @@ dependencies {
 	//Image Related
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
+
+//croping image ,rotate, size reduced
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
 }

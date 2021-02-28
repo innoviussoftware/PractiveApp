@@ -1,18 +1,34 @@
 package com.practicletaskapp.ui.signup
 
+import android.Manifest
+import android.annotation.TargetApi
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import com.practicletaskapp.MainActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.practicletaskapp.ui.MainActivity
 import com.practicletaskapp.R
 import com.practicletaskapp.ui.login.LoginActivity
 import com.practicletaskapp.utils.GlobalMethods
 import com.practicletaskapp.utils.SessionManager.SessionManager
 import com.practicletaskapp.utils.UtilsJava
+
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.util.Log
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -24,10 +40,13 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var edtTvAddressSUP: EditText
     lateinit var rdoGrpSexASUP: RadioGroup
 
+    lateinit var ivProfilePicASUP:ImageView
+
+    lateinit var mContext:Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
+        mContext=SignUpActivity@this
         getIds()
     }
 
@@ -40,10 +59,121 @@ class SignUpActivity : AppCompatActivity() {
         edtTvAddressSUP = findViewById(R.id.edtTvAddressSUP)
         edtTvFirstNameASUP = findViewById(R.id.edtTvFirstNameASUP)
         rdoGrpSexASUP = findViewById(R.id.rdoGrpSexASUP)
+        ivProfilePicASUP=findViewById(R.id.ivProfilePicASUP)
+
+
         rdoGrpSexASUP.setOnCheckedChangeListener { group, checkedId -> // checkedId is the RadioButton selected
             val rb: RadioButton = findViewById<View>(checkedId) as RadioButton
             strGender = rb.text.toString()
         }
+
+        ivProfilePicASUP.setImageDrawable(resources.getDrawable(R.drawable.user))
+    }
+
+    fun changeProfilePIc(view: View){
+        try {
+            if (checkPermission()) {
+                CropImage.startPickImageActivity(this);
+            }
+        } catch (e: Exception) {
+            e.printStackTrace();
+        }
+    }
+
+    private val MY_PERMISSIONS_REQUEST_CAMERA = 1
+
+    private fun checkPermission(): Boolean {
+        try {
+
+            val AccessCamera =
+                ContextCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA)
+            val ReadPermission =
+                ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE)
+            val WritePermission =
+                ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+            val listPermissionsNeeded = ArrayList<String>()
+
+            if (AccessCamera != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.CAMERA)
+            }
+            if (ReadPermission != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+            if (WritePermission != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            }
+            if (!listPermissionsNeeded.isEmpty()) {
+                ActivityCompat.requestPermissions(
+                    this@SignUpActivity,
+                    listPermissionsNeeded.toTypedArray(), MY_PERMISSIONS_REQUEST_CAMERA
+                )
+                return false
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return true
+    }
+
+    //Image set start
+    private var mCropImageUri: Uri? = null
+    var alPhotoFilePath: ArrayList<String>? = null
+    var alPhotoUri: ArrayList<Uri>? = null
+    var filePath: String? = ""
+
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        try {
+            if (resultCode == Activity.RESULT_OK) {
+                try {
+                    var imageUri: Uri? = null
+                    // handle result of pick image chooser
+                    if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+
+                        imageUri = CropImage.getPickImageResultUri(this, data)
+
+                        if (CropImage.isReadExternalStoragePermissionsRequired(this, imageUri)) {
+                            mCropImageUri = imageUri
+                            requestPermissions(
+                                arrayOf(
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.CAMERA
+                                ), CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE
+                            )
+                        } else {
+                            startCropImageActivity(imageUri)
+                        }
+                    } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+
+                        try {
+                            //   mCropImageUri = CropImage.getActivityResult(data).getUri();
+                            val uri = CropImage.getActivityResult(data).getUri()
+
+                              ivProfilePicASUP.setImageURI(uri)
+                            
+                        } catch (e: Exception) {
+
+                            e.printStackTrace();
+
+                        }
+
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
     }
 
     fun loginOpen(view: View) {
@@ -124,4 +254,48 @@ class SignUpActivity : AppCompatActivity() {
 
         return true
     }
+
+    //Set image .. start
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            MY_PERMISSIONS_REQUEST_CAMERA -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    if (ContextCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.CAMERA
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        if (ContextCompat.checkSelfPermission(
+                                this,
+                                Manifest.permission.READ_EXTERNAL_STORAGE
+                            ) == PackageManager.PERMISSION_GRANTED
+                        ) {
+                            if (ContextCompat.checkSelfPermission(
+                                    this,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                ) == PackageManager.PERMISSION_GRANTED
+                            ) {
+
+                            }
+                        }
+                    }
+
+                } else {
+                    //    checkPermission()
+                }
+            }
+        }
+    }
+
+    private fun startCropImageActivity(imageUri: Uri) {
+        CropImage.activity(imageUri)
+            .start(this)
+    }
+
 }

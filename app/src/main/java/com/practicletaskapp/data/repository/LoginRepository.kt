@@ -7,12 +7,12 @@ import com.google.gson.JsonObject
 
 //Todo: MyApi connected Repository.
 // SafeAPIRequest=  Using Api call Handle Data and Exceptions
-class LoginRepository(private val api: MyApi): SafeAPIRequest() {
+class LoginSignUpRepository(private val api: MyApi): SafeAPIRequest() {
 
 
-    suspend fun callLogin(email:String,password:String,device_id:String): LoginResponse {
+    suspend fun callLoginApi(email:String,password:String,device_id:String): LoginResponse {
         //Todo: Api call Execute using request param, and return values "LoginResponse" as per set return type/data
-        return apiRequest { api.callExecuteLogin(email,password,device_id) }
+        return apiRequest { api.callExecuteLogin(email,password,device_id,"android") }
     }
 
 }

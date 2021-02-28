@@ -1,7 +1,8 @@
-package com.practicletaskapp
+package com.practicletaskapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.practicletaskapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

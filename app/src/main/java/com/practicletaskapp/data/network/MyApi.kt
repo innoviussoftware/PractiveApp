@@ -15,8 +15,10 @@ interface MyApi {
 
     @POST(WebFields.LOGIN_PATH_PARAM)
     suspend fun callExecuteLogin(
-        @Query(WebFields.REQUEST_EMAIL) email: String?, @Query(WebFields.REQUEST_PASSWORD) password: String?,
-        @Query(WebFields.REQUEST_DEVICE_ID) fcm_token: String?
+        @Query(WebFields.REQUEST_EMAIL) email: String?,
+        @Query(WebFields.REQUEST_PASSWORD) password: String?,
+        @Query("device_token") device_token: String?,
+        @Query("device_type") device_type: String?
     ): Response<LoginResponse>
 
     companion object {

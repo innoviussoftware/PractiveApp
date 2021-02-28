@@ -1,6 +1,8 @@
 package com.practicletaskapp.data.responce
 
 data class LoginResponse(
+    var status_code:Int?=null,
+    var message:String?=null,
     val `data`: Data
 )
 
