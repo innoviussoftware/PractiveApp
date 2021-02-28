@@ -146,19 +146,17 @@
                 android:id="@+id/tvSex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ltvDOB"
                 android:layout_marginStart="@dimen/_22sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:hint="@string/gender_ttl"
-                android:textColor="@color/gray_clr"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_11ssp" />
 
             <RelativeLayout
                 android:id="@+id/rlSex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvSex"
                 android:layout_marginStart="@dimen/_22sdp"
                 android:layout_marginEnd="@dimen/_20sdp">
 
@@ -221,6 +219,44 @@
                     android:textSize="@dimen/_13ssp" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:onClick="signUpClick"
+                android:id="@+id/tvSignUpASUP"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:elevation="@dimen/_8sdp"
+                android:gravity="center"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="@string/signup_ttl"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/rlNewUserMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp">
+
+                <TextView
+                    android:onClick="loginOpen"
+                    android:id="@+id/tvAlreadyAccountASUP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/already_hva_an_act_ttl"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
 
 
         </LinearLayout>

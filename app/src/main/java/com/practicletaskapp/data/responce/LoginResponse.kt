@@ -1,4 +1,4 @@
-package com.fia.data.responce
+package com.practicletaskapp.data.responce
 
 data class LoginResponse(
     val `data`: Data

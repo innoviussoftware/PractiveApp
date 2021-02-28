@@ -21,4 +21,9 @@
     <string name="gender_empty">Please enter Gender</string>
     <string name="password_empty">Please enter Password</string>
     <string name="address_empty">Please enter Address</string>
+    <string name="signup_ttl">Sign Up</string>
+    <string name="password_valid">Please password atlist  6 digit.</string>
+    <string name="signup_success_msg">SignUp Successfully.</string>
+
+    <string name="already_hva_an_act_ttl">Already have an account? Login</string>
 </resources>

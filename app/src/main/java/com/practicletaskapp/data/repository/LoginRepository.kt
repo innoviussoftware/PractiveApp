@@ -1,8 +1,8 @@
-package com.fia.data.repository
+package com.practicletaskapp.data.repository
 
-import com.example.mvvm_demo.data.network.SafeAPIRequest
-import com.fia.data.responce.LoginResponse
-import com.fia.network.MyApi
+import com.practicletaskapp.data.network.SafeAPIRequest
+import com.practicletaskapp.data.responce.LoginResponse
+import com.practicletaskapp.network.MyApi
 import com.google.gson.JsonObject
 
 //Todo: MyApi connected Repository.
